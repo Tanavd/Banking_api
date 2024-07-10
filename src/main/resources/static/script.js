@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         const holderName = document.getElementById('holderName').value;
         const initialBalance = parseFloat(document.getElementById('initialBalance').value);
-        
+
+        console.log("Form Values - Holder Name:", holderName, "Initial Balance:", initialBalance);
+
         try {
             const response = await fetch('/api/accounts/add', {
                 method: 'POST',
@@ -22,12 +24,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify({ accountholdername: holderName, balance: initialBalance }),
             });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error adding account:', errorData);
+                alert('Error adding account: ' + (errorData.message || 'Unknown error'));
+                return;
+            }
+
             const data = await response.json();
+            console.log("Response Data:", data);
             alert('Account added successfully');
         } catch (error) {
             console.error('Error adding account:', error);
         }
     });
+
 
     // Handle Deposit Form submission
     depositForm.addEventListener('submit', async (e) => {
