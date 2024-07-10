@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Banking Application</h1>
+        </header>
+        <div class="form-section">
+            <div class="form-container">
+                <h2>Add Account</h2>
+                <form id="addAccountForm">
+                    <input type="text" id="accountHolderName" placeholder="Account Holder Name" required>
+                    <input type="number" id="initialBalance" placeholder="Initial Balance" required>
+                    <button type="submit">Add Account</button>
+                </form>
+            </div>
+            <div class="form-container">
+                <h2>Deposit</h2>
+                <form id="depositForm">
+                    <input type="number" id="depositAmount" placeholder="Amount" required>
+                    <button type="submit">Deposit</button>
+                </form>
+            </div>
+            <div class="form-container">
+                <h2>Withdraw</h2>
+                <form id="withdrawForm">
+                    <input type="number" id="withdrawAmount" placeholder="Amount" required>
+                    <button type="submit">Withdraw</button>
+                </form>
+            </div>
+            <div class="form-container">
+                <h2>Delete Account</h2>
+                <form id="deleteAccountForm">
+                    <input type="number" id="deleteAccountId" placeholder="Account ID" required>
+                    <button type="submit">Delete Account</button>
+                </form>
+            </div>
+        </div>
+        <div class="account-list">
+            <button id="fetchAccounts">Fetch Accounts</button>
+            <ul id="accountsList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
